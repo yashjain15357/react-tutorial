@@ -4,8 +4,10 @@ function App() {
   const [color, setColor] = useState("olive"); // Default color
 
   return (
-    <div className="h-screen w-screen"
+    
+    <div className="h-screen w-screen text-center"
       style={{ backgroundColor: color }}>
+        <h1 className="text-amber-900">Background Color Changer</h1>
       <div className="bg-amber-400 text-center rounded-full" >
         <button
           className="rounded-full m-3"
