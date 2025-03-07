@@ -1,5 +1,5 @@
 import React from "react";
-import {useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'  // use this useParams important
 function User(){
     const {userid}=useParams()
     return(

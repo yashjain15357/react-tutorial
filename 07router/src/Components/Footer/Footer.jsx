@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function Footer() {
     return (
@@ -20,14 +20,24 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
-                                    <Link to="/" className="hover:underline">
-                                        Home
-                                    </Link>
+                                <NavLink // component of react router use instend of <a> tag it not fully reload a sight
+                                    to="/"
+                                    className={({ isActive }) =>
+                                        `${isActive ? "text-orange-700" : "text-gray-700"} `
+                                    }
+                                >
+                                    Home
+                                </NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/about" className="hover:underline">
-                                        About
-                                    </Link>
+                                <NavLink // component of react router use instend of <a> tag it not fully reload a sight
+                                    to="About"
+                                    className={({ isActive }) =>
+                                        `${isActive ? "text-orange-700" : "text-gray-700"} `
+                                    }
+                                >
+                                    About
+                                </NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -35,19 +45,24 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
-                                    <a
-                                        href="https://github.com/hiteshchoudhary"
-                                        className="hover:underline"
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        Github
-                                    </a>
+                                <NavLink // component of react router use instend of <a> tag it not fully reload a sight
+                                    to="Github"
+                                    className={({ isActive }) =>
+                                        `${isActive ? "text-orange-700" : "text-gray-700"} `
+                                    }
+                                >
+                                    Github
+                                </NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/" className="hover:underline">
-                                        Discord
-                                    </Link>
+                                <NavLink // component of react router use instend of <a> tag it not fully reload a sight
+                                    to="About"
+                                    className={({ isActive }) =>
+                                        `${isActive ? "text-orange-700" : "text-gray-700"} `
+                                    }
+                                >
+                                    About
+                                </NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -55,14 +70,24 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
-                                    <Link to="#" className="hover:underline">
-                                        Privacy Policy
-                                    </Link>
+                                <NavLink // component of react router use instend of <a> tag it not fully reload a sight
+                                    to="privacy Policy"
+                                    className={({ isActive }) =>
+                                        `${isActive ? "text-orange-700" : "text-gray-700"} `
+                                    }
+                                >
+                                    privacy Policy
+                                </NavLink>
                                 </li>
                                 <li>
-                                    <Link to="#" className="hover:underline">
-                                        Terms &amp; Conditions
-                                    </Link>
+                                <NavLink // component of react router use instend of <a> tag it not fully reload a sight
+                                    to="Terms & condition"
+                                    className={({ isActive }) =>
+                                        `${isActive ? "text-orange-700" : "text-gray-700"} `
+                                    }
+                                >
+                                    Terms & condition
+                                </NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -71,9 +96,9 @@ export default function Footer() {
                 <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-gray-500 sm:text-center">
-                        © 2023
-                        <a href="https://hiteshchoudhary.com/" className="hover:underline">
-                            hiteshchoudhary
+                        © 2027
+                        <a href="https://Github.com/yashjain15357/" className="hover:underline">
+                           yashjain
                         </a>
                         . All Rights Reserved.
                     </span>
