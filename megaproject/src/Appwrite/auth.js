@@ -31,7 +31,7 @@ export class AuthServices {
     }
 
     // Method to log in a user with email and password
-    async createlogin({ email, password }) {
+    async login({ email, password }) {
         try {
             // Create a session for the user using email and password
             return await this.account.createEmailPasswordSession(email, password);
@@ -52,12 +52,12 @@ export class AuthServices {
     }
 
     // Method to log out the current user
-    async createlogout() {
+    async logout() {
+
         try {
-            // Delete all sessions for the current user
-            this.account.deleteSessions();
+            await this.account.deleteSessions();
         } catch (error) {
-            throw error; // Throw an error if logout fails
+            console.log("Appwrite serive :: logout :: error", error);
         }
     }
 }

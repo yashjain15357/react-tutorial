@@ -3,7 +3,7 @@ import conf from "../conf/conf.js";
 import { Client, Databases, ID, Storage, Query } from "appwrite";
 
 // Class to handle database and storage services using Appwrite
-export class databaseServices {
+export class Service {
     client = new Client(); // Initialize Appwrite client
     databases; // Placeholder for database service
     bucket; // Placeholder for storage bucket service
@@ -133,7 +133,7 @@ export class databaseServices {
     }
 
     // Function to get a preview URL for a file
-    filePreview(fileId) {
+    getFilePreview(fileId) {
         return this.bucket.getFilePreview(
             conf.appwiteBuckeid, // Bucket ID
             fileId // File ID
@@ -141,5 +141,7 @@ export class databaseServices {
     }
 }
 
-// Export an instance of the databaseServices class for use throughout the application
-export const dataServices = new databaseServices();
+// Export an instance of the Service
+// class for use throughout the application
+const service = new Service()
+export default service

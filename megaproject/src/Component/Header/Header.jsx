@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, LogoutBtn, Logo } from "..index/"
+import { Container, LogoutBtn, Logo } from "../index"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"; //It allows you to access specific parts of the state in your functional components without subscribing to the entire store.
-import { useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Header() {
     const authStatus = useSelector((state) => state.auth.status)
-    const navigate = useNavigation()
+    const navigate = useNavigate()
     const navItems = [
         {
             name: 'Home',
@@ -39,31 +39,40 @@ function Header() {
                 <nav className='flex'>
                     <div className='mr-4'>
                         <Link to="/">
-                            <Logo width = "70px" />
+                            <Logo width="70px" />
                         </Link>
                     </div>
 
                     <ul className="flex ml-auto">
-                        {navItems.map((item)=>
-                        item.active ?(
+                        {navItems.filter(item => item.active).map((item) => (
+                            <li key={item.slug}>
+                                <button
+                                    className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                                    onClick={() => navigate(item.slug)}>
+                                    {item.name}
+                                </button>
+                            </li>
+                        ))}
+                        {/* {navItems.map((item)=>
+                        (item.active ?(
                             // if the html element repeate so compelsary to use key in it
                             <li key={item.name}> 
                                 <button 
-                                className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                                className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
                                 onClick={()=>navigate(item.slug)}>
                                     {
                                         item.name
                                     }
                                 </button>
                             </li>
-                        ):null 
+                        ):null) 
+                        )} */}
+                        {/* // if the authStatus is true than tha code under the baracket work */}
+                        {authStatus && (
+                            <li>
+                                <LogoutBtn />
+                            </li>
                         )}
-                    {/* // if the authStatus is true than tha code under the baracket work  */}
-                    {authStatus && (
-                        <li>
-                        <LogoutBtn />    
-                        </li>
-                    )}
                     </ul>
                 </nav>
             </Container>
